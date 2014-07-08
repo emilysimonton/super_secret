@@ -14,7 +14,8 @@ class PollsController < ApplicationController
     if @poll.save
       redirect_to @poll
     else
-      render "new", notice: "Please enter a question with two answers."
+      flash[:notice] = "Please enter a question with two answers."
+      render "new"
     end
   end
 

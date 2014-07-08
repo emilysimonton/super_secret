@@ -1,4 +1,6 @@
-<%=@poll.question%>
+<%=@poll.question%><br>
+<ul>
 <%@poll.options.each do |option|%>
-  <%=option.answer%>
+  <li>Option: <%=option.answer%></li>
 <%end%>
+</ul>
