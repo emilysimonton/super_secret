@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-  get 'polls/new'
-
-  get 'polls/create'
-
-  get 'polls/edit'
-
-  get 'polls/update'
-
-  get 'polls/destroy'
+  resources :polls
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
