@@ -5,11 +5,11 @@
   </div>
 
   <div id="options">
-    <%= f.fields_for(:options, Option.new) do |option_form| %>
-    <%= option_form.label :answer %><br>
-    <%= option_form.text_field :answer %> <br>
-    <%= option_form.label :answer %><br>
-    <%= option_form.text_field :answer %><br>
+    Answers<br>
+    <%@poll.options.each do |option|%>
+      <%= f.fields_for 'options_attributes[]', option do |option_form| %>
+        <%= option_form.text_field :answer %> <br>
+      <%end%>
     <%end%>
   </div>
 
