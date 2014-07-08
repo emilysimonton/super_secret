@@ -3,4 +3,5 @@
 <%@poll.options.each do |option|%>
   <li>Option: <%=option.answer%></li>
 <%end%>
+<p>This poll will expire on <%=@poll.expiration%></p>
 </ul>
