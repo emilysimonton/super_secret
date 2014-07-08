@@ -3,6 +3,7 @@ class PollsController < ApplicationController
 
   def new
     @poll = Poll.new
+    @poll.expiration = Time.now + 24.hours
     2.times {@poll.options.new}
   end
 
