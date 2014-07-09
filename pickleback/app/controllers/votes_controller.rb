@@ -5,8 +5,7 @@ def new
 end
 
 def create
-
+  Option.increment_counter(:votes, params[:option])
 end
-
 
 end
