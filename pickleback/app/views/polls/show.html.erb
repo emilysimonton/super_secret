@@ -1,9 +1,11 @@
 <%=@poll.question%><br>
 <ul>
-<%@poll.options.each do |option|%>
-  <li>Option: <%=option.answer%></li>
-<%end%>
-<p>This poll will expire on <%=@poll.expiration%></p>
+  <%@poll.options.each do |option|%>
+    <li>Option:
+      <%=option.answer%></li>
+  <%end%>
+  <p>This poll will expire on
+    <%=@poll.expiration%></p>
 </ul>
 <p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
-<p><%= link_to 'Confirm', new_recipient_path %></p>
+<p><%= link_to 'Confirm', new_poll_recipient_path(@poll) %></p>
