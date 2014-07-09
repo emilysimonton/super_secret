@@ -11,14 +11,6 @@ class PollsController < ApplicationController
     # GET: takes you to edit or confirm
   end
 
-  def vote
-    # GET: poll for user to fill out
-  end
-
-  def results
-    # POST: view results
-  end
-
   def create
     @poll = Poll.new(poll_params)
     if @poll.save
@@ -44,6 +36,6 @@ class PollsController < ApplicationController
   end
 
   def poll_params
-    params.require(:poll).permit(:question, :expiration, :user_id, :filepicker_url, :options_attributes => [:answer, :filepicker_url])
+    params.require(:poll).permit(:question, :expiration, :token, :user_id, :filepicker_url, :options_attributes => [:answer, :filepicker_url])
   end
 end

@@ -1,28 +1,24 @@
 <p>Your poll has been created!</p>
-
 <p>Here's your link to share:</p>
-<%= link_to 'Your poll', '#' %>
+<%=# link_to 'Your poll', answer_me_path(@poll.token), {:controller => "votes", :action => "new", :poll => @poll.token} %>
 <p>Or send poll via email:</p>
 <%= form_tag poll_recipients_path(@poll) do %>
   <% @poll.recipients.each do |recipient| %>
-      <%= fields_for 'recipients[]', recipient do |recipient_form| %>
-          <div id="recipient_emails">
-              <%= recipient_form.label :email %>
-              <%= recipient_form.text_field :email %>
-          </div>
-      <% end %>
+    <%= fields_for 'recipients[]', recipient do |recipient_form| %>
+      <div id="recipient_emails">
+        <%= recipient_form.label :email %>
+        <%= recipient_form.text_field :email %>
+      </div>
+    <% end %>
   <% end %>
-  
   <% 3.times do %>
     <%= fields_for 'recipients[]', Recipient.new do |recipient_form| %>
-          <div id="recipient_emails">
-              <%= recipient_form.label :email %>
-              <%= recipient_form.text_field :email %>
-          </div>
-      <% end %>
+      <div id="recipient_emails">
+        <%= recipient_form.label :email %>
+        <%= recipient_form.text_field :email %>
+      </div>
+    <% end %>
   <% end %>
   <%= submit_tag %>
 <% end %>
-
-
 <!-- when you submit, where does it post? -->
