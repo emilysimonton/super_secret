@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140708204351) do
     t.string   "question"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "expiration", default: '2014-07-09 17:18:26'
+    t.datetime "expiration"
   end
 
 end
