@@ -8,8 +8,12 @@ class PollsController < ApplicationController
   end
 
   def show
+
   end
 
+  def confirm
+  end
+  
   def create
     @poll = Poll.new(poll_params)
     if @poll.save

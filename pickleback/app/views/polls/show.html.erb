@@ -5,3 +5,5 @@
 <%end%>
 <p>This poll will expire on <%=@poll.expiration%></p>
 </ul>
+<p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
+<p><%= link_to 'Confirm', confirm_poll_path(@poll) %></p>

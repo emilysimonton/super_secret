@@ -1,0 +1,5 @@
+<%= @recipient.email %>
+
+<%= @user.name %> wants to ask you: <%= @poll.question%>
+
+Click here to vote! <%= vote_poll_url(@poll) %>
