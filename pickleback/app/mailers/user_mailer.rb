@@ -5,7 +5,6 @@ class UserMailer < ActionMailer::Base
     # After we create a user table!
     @poll.recipients.each do |recipient|
       mail(:to => recipient.email, :subject => "#{@user.name} has a question for you")
-
     end
   end
 end
