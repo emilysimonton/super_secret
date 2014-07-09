@@ -1,0 +1,9 @@
+<%=form_tag  do %>
+<%=@poll.question%><br>
+<%@poll.options.each do |option| %>
+  <%= radio_button_tag(:option, option.id) %>
+  <%= label_tag("option_#{option.id}", "#{option.answer}") %>
+<%end%>
+
+<%=submit_tag 'Vote'%>
+<%end%>

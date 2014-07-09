@@ -58,4 +58,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get 'answer_me/:token' => 'votes#new'
+  post 'answer_me/:token' => 'votes#new'
+
 end

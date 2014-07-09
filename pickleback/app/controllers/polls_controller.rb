@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :edit, :update, :destroy]
+  before_action :set_poll, only: [:show, :edit, :update, :vote, :destroy]
 
   def new
     @poll = Poll.new
@@ -9,14 +9,6 @@ class PollsController < ApplicationController
 
   def show
     # GET: takes you to edit or confirm
-  end
-
-  def vote
-    # GET: poll for user to fill out
-  end
-
-  def results
-    # POST: view results
   end
 
   def create
