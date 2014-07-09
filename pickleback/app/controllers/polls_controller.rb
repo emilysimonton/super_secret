@@ -36,6 +36,6 @@ class PollsController < ApplicationController
   end
 
   def poll_params
-    params.require(:poll).permit(:question, :expiration, :user_id, :filepicker_url, :options_attributes => [:answer, :filepicker_url])
+    params.require(:poll).permit(:question, :expiration, :token, :user_id, :filepicker_url, :options_attributes => [:answer, :filepicker_url])
   end
 end
