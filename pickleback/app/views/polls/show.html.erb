@@ -1,11 +1,12 @@
-<%=@poll.question%><br>
+<h2><%=@poll.question%></h2><br>
+<%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
 <ul>
+
   <%@poll.options.each do |option|%>
-    <li>Option:
-      <%=option.answer%></li>
+    <li>Option: <%=option.answer%></li>
+    <li><%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%></li><br>
   <%end%>
-  <p>This poll will expire on
-    <%=@poll.expiration%></p>
+  <p>This poll will expire on <%=@poll.expiration%></p>
 </ul>
-<p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
-<p><%= link_to 'Confirm', new_poll_recipient_path(@poll) %></p>
+  <p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
+  <p><%= link_to 'Confirm', new_poll_recipient_path(@poll) %></p>
