@@ -1,10 +1,14 @@
 <h2><%=@poll.question%></h2><br>
-<%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
+<%if @poll.filepicker_url%>
+  <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
+<%end%>
 <ul>
 
   <%@poll.options.each do |option|%>
     <li>Option: <%=option.answer%></li>
-    <li><%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%></li><br>
+    <%if option.filepicker_url%>
+      <li><%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%></li><br>
+    <%end%>
   <%end%>
   <p>This poll will expire on <%=@poll.expiration%></p>
 </ul>

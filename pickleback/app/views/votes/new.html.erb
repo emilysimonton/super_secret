@@ -1,8 +1,15 @@
 <%=form_tag  do %>
 <%=@poll.question%><br>
+<%unless @poll.filepicker_url.empty?%>
+  <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
+<%end%>
+<br>
 <%@poll.options.each do |option| %>
   <%= radio_button_tag(:option, option.id) %>
   <%= label_tag("option_#{option.id}", "#{option.answer}") %>
+  <%unless option.filepicker_url.empty?%>
+    <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%>
+  <%end%>
 <%end%>
 
 <%=submit_tag 'Vote'%>

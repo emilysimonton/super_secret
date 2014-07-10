@@ -1,6 +1,6 @@
 <p>Your poll has been created!</p>
 <p>Here's your link to share:</p>
-<%=# link_to 'Your poll', answer_me_path(@poll.token), {:controller => "votes", :action => "new", :poll => @poll.token} %>
+<%# link_to 'Your poll', answer_me_path(@poll.token), {:controller => "votes", :action => "new", :poll => @poll.token} %>
 <p>Or send poll via email:</p>
 <%= form_tag poll_recipients_path(@poll) do %>
   <% @poll.recipients.each do |recipient| %>

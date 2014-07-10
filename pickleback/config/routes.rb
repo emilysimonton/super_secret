@@ -62,5 +62,5 @@ Rails.application.routes.draw do
 
   get 'answer_me/:token' => 'votes#new'
   post 'answer_me/:token' => 'votes#create'
-
+  get 'answer_me/:token' => 'votes#show'
 end
