@@ -2,18 +2,13 @@ class RecipientsController < ApplicationController
   def new
     # GET: asks you to share or input links
     @poll = Poll.find(params[:poll_id])
-    3.times {@poll.recipients.new}
   end
 
   def create
     @poll = Poll.find(params[:poll_id])
     params[:recipients].each do |recipient|
-      Recipient.create(:email => recipient[:email], :poll_id => @poll.id)
+      #UserMailer.registration_confirmation(recipient).deliver
     end
-    # if @recipient.save
-    # UserMailer.registration_confirmation(@user).deliver
-    # POST: adds recipients to database
-    # calls method to send emails or create link
 
   end
 

@@ -1,6 +1,8 @@
 class Poll < ActiveRecord::Base
   has_many :options
   belongs_to :user
+  has_many :votes
+  has_many :voters, through: :votes
   validates :question, presence: true, length: {maximum: 140}
   accepts_nested_attributes_for :options
   before_create :generate_token

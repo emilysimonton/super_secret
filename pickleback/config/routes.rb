@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get 'answer_me/:token/vote' => 'votes#new', as: :new_vote
-  post 'answer_me/:token' => 'votes#create'
-  get 'answer_me/:token' => 'votes#show', as: :vote
+  get 'answer_me/:token/vote' => 'voters#new', as: :new_vote
+  post 'answer_me/:token' => 'voters#create'
+  get 'answer_me/:token' => 'voters#show', as: :vote
 end
