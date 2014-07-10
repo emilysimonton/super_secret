@@ -1,6 +1,19 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :vote, :destroy]
 
+  def index
+    # find user first
+    # find that user's polls
+    # TESTING
+    @user = User.new(name: "Jarica")
+    poll = Poll.create(question: "What am I doing??")
+    poll2 = Poll.create(question: "Quiz 2??")
+    @user.polls << poll << poll2
+    # TESTING
+    
+    @polls = @user.polls
+  end
+
   def new
     @poll = Poll.new
     @poll.expiration = Time.zone.now + 24.hours
