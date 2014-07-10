@@ -1,4 +1,4 @@
-<%=form_tag  do %>
+<%=form_tag("/answer_me/#{@poll.token}") do %>
 <%=@poll.question%><br>
 <%unless @poll.filepicker_url.empty?%>
   <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
