@@ -5,13 +5,10 @@ class PollsController < ApplicationController
     # find user first
     # find that user's polls
     # TESTING
-    @user = User.new(name: "Jarica")
-    poll = Poll.create(question: "What am I doing??")
-    poll2 = Poll.create(question: "Quiz 2??")
-    @user.polls << poll << poll2
+
     # TESTING
-    
-    @polls = @user.polls
+
+    @polls = current_user.polls
   end
 
   def new
