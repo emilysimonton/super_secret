@@ -1,12 +1,12 @@
 <h2><%=@poll.question%></h2><br>
-<%if @poll.filepicker_url%>
+<%unless @poll.filepicker_url.empty?%>
   <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
 <%end%>
 <ul>
 
   <%@poll.options.each do |option|%>
     <li>Option: <%=option.answer%></li>
-    <%if option.filepicker_url%>
+    <%unless option.filepicker_url.empty?%>
       <li><%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%></li><br>
     <%end%>
   <%end%>
