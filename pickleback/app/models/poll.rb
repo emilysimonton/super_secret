@@ -8,10 +8,12 @@ class Poll < ActiveRecord::Base
   before_create :generate_token
 
   def winner
-    if self.options[0].votes > self.options[1].votes
-      self.options[0]
+    if self.options[0].votes == self.options[1].votes
+      "Tie"
+    elsif self.options[0].votes > self.options[1].votes
+      self.options[0].answer
     else
-      self.options[1]
+      self.options[1].answer
     end
   end
 

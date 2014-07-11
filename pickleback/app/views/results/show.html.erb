@@ -1,10 +1,10 @@
 <h1>The Results are in!</h1>
 
-<%= @poll.question %>
+Question: <%= @poll.question %><br>
 <% @poll.options.each do |option| %>
-<%= option.answer %> Total Votes: <%= option.votes %>
+<%= option.answer %> votes: <%= option.votes %><br>
 <% end %>
 
-The winner is: <%=@poll.winner.answer%>!
+The winner is: <%=@poll.winner%>!
 
 
