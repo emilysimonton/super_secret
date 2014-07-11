@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  
+
   root 'welcome#index'
 
   delete 'polls/:id' => 'polls#destroy', as: :destroy_poll
+
+  get 'results/:id' => 'results#show', as: :result
 
   resources :polls do
     resources :recipients

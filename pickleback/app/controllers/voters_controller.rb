@@ -2,12 +2,18 @@ class VotersController < ApplicationController
 
   def new
     @poll = Poll.find_by(token: params[:token])
-    @poll.voters.each do |voter|
-      if session[:voter] == voter.uuid
-        flash[:notice] = "You've already voted on this poll!"
-        redirect_to root_path
-      end 
-    end 
+    if Time.now <= @poll.expiration
+      @poll.voters.each do |voter|
+        if session[:voter] == voter.uuid
+          flash[:notice] = "You've already voted on this poll!"
+          redirect_to root_path
+        else
+          render :new
+        end
+      end
+    else
+        redirect_to result_path(@poll.id)
+    end
   end
 
   def create
@@ -19,8 +25,10 @@ class VotersController < ApplicationController
     redirect_to vote_path(@poll.token)
   end
 
-  def show
-  end
+
+  # def show
+  #   @poll = Poll.find_by(token: params[:token])
+  # end
 
 
 end
