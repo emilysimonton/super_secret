@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
   root 'welcome#index'
+
+  delete 'polls/:id' => 'polls#destroy', as: :destroy_poll
+
   resources :polls do
     resources :recipients
   end
 
+  get 'answer_me/:token/vote' => 'voters#new', as: :new_vote
+  post 'answer_me/:token' => 'voters#create'
+  get 'answer_me/:token' => 'voters#show', as: :vote
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -61,8 +68,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  get 'answer_me/:token/vote' => 'voters#new', as: :new_vote
-  post 'answer_me/:token' => 'voters#create'
-  get 'answer_me/:token' => 'voters#show', as: :vote
 end

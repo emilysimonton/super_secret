@@ -1,3 +1,4 @@
 <% @polls.each do |poll| %>
     <p><%= link_to poll.question, poll_path(poll) %></p>
+    <%= button_to 'Delete poll', destroy_poll_path(poll) ,method: :delete %>
 <% end %>

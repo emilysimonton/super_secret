@@ -39,6 +39,8 @@ class PollsController < ApplicationController
   end
 
   def destroy
+    @poll.destroy
+    redirect_to polls_path
   end
 
   private
