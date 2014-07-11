@@ -1,10 +1,20 @@
-<h1>The Results are in!</h1>
-
-Question: <%= @poll.question %><br>
-<% @poll.options.each do |option| %>
-<%= option.answer %> votes: <%= option.votes %><br>
+<% if Time.now <= @poll.expiration %>
+    <h1>Results so far</h1>
+<% else %>
+    <h1>The Results are in!</h1>
 <% end %>
 
-The winner is: <%=@poll.winner%>!
+<h4>Question: <%= @poll.question %></h4>
+<h4>Votes</h4>
+<% @poll.options.each do |option| %>
+    <div id='option_result'>
+    <%= option.answer %>: <%= option.votes %><br>
+    <% unless option.filepicker_url.empty? %>
+        <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
+    <% end %>
+    </div>
+<% end %>
 
+<h4>The winner is: <%= @poll.winner %>!</h4>
 
+<p>Poll expires at <%= @poll.expiration %></p>
