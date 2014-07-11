@@ -7,6 +7,14 @@ class Poll < ActiveRecord::Base
   accepts_nested_attributes_for :options
   before_create :generate_token
 
+  def winner
+    if self.options[0].votes > self.options[1].votes
+      self.options[0]
+    else
+      self.options[1]
+    end
+  end
+
   private
   def generate_token
     self.token = loop do
