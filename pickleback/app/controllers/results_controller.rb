@@ -7,5 +7,4 @@ class ResultsController < ApplicationController
       render :show
     end
   end
-
 end
