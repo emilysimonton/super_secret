@@ -23,8 +23,13 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
-  <%= yield %>
+  <div id='centerdiv'>
+    <div id='wrapper'>
+      <%= yield %>
+    </div> <!-- wrapper -->
+  </div> <!-- centerdiv -->
    </div>
+   <script src="/assets/javascripts/application.js"></script>
 </head>
 <body>
 

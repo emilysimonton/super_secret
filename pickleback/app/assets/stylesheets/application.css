@@ -15,4 +15,20 @@
  *= require twitter/bootstrap
  */
 
-h1, p {text-align: center}
+/*h1, p {text-align: center}*/
+
+
+    
+
+
+div#centerdiv {
+    text-align: center;
+    background: #96CDCD;
+}
+
+div#wrapper {
+    display: inline-block;
+    text-align:left;
+    margin: 0 auto;
+    padding: 0;
+}
