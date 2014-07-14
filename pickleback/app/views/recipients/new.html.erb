@@ -6,6 +6,9 @@
   <%=text_field_tag("recipients[]")%>
   <%=text_field_tag("recipients[]")%>
   <%=text_field_tag("recipients[]")%>
-  <%= submit_tag %>
+  <p>Write an optional message: <%=text_field_tag("message")%></p>
+  <%= submit_tag("Send poll") %>
 <% end %>
+
+
 <!-- when you submit, where does it post? -->
