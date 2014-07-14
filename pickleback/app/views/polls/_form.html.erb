@@ -6,8 +6,7 @@
   <div id="question">
     <%=f.label :question%>
     <%=f.text_field :question%>
-    <%= f.label :filepicker_url, "Add an image" %>
-    <%= f.filepicker_field :filepicker_url, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
+    <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
   </div>
 
   <div id="options">
@@ -15,7 +14,7 @@
     <%@poll.options.each do |option|%>
       <%= f.fields_for 'options_attributes[]', option do |option_form| %>
         <%=option_form.text_field :answer %>
-        <%=option_form.filepicker_field :filepicker_url, onchange: "alert('Image uploaded!')"%>
+        <%=option_form.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%>
       <%end%>
     <%end%>
   </div>
