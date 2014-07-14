@@ -14,7 +14,7 @@ class PollsController < ApplicationController
   def new
     @poll = Poll.new
     @poll.expiration = Time.zone.now + 24.hours
-    2.times {@poll.options.new}
+    2.times {@poll.options.build}
   end
 
   def show
@@ -36,6 +36,13 @@ class PollsController < ApplicationController
   end
 
   def update
+    if @poll.update(poll_params)
+      flash[:notice] = "Successfully updated poll."
+      redirect_to poll_path(@poll)
+    else
+      flash[:notice] = "Something went wrong."
+      render :edit
+    end
   end
 
   def destroy
@@ -49,6 +56,6 @@ class PollsController < ApplicationController
   end
 
   def poll_params
-    params.require(:poll).permit(:question, :expiration, :token, :user_id, :filepicker_url, :options_attributes => [:answer, :filepicker_url])
+    params.require(:poll).permit(:question, :expiration, :token, :user_id, :filepicker_url, :options_attributes=>[:answer, :filepicker_url])
   end
 end
