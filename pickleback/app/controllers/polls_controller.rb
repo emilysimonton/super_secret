@@ -36,7 +36,15 @@ class PollsController < ApplicationController
   end
 
   def update
-    if @poll.update(poll_params)
+    #Not sure why accepts nested is not working as expected
+    #This ugly thing iterates over poll options and updates them so no new ones
+    #are created
+    @poll.options.each_with_index do |option, index|
+      opt = Option.find(option.id)
+      opt.update(poll_params[:options_attributes][index.to_s])
+    end
+    #Then update poll, but not options_attributes
+    if @poll.update(poll_params.except(:options_attributes))
       flash[:notice] = "Successfully updated poll."
       redirect_to poll_path(@poll)
     else
