@@ -7,10 +7,9 @@ class RecipientsController < ApplicationController
   def create
     @poll = Poll.find(params[:poll_id])
     @message = params[:message]
-    session[:recipients] = []
-    session[:recipients] = params[:recipients].reject(&:empty?)
-    session[:recipients].each do |recipient|
-      binding.pry
+    @recipients = []
+    @recipients = params[:recipients].reject(&:empty?)
+    @recipients.each do |recipient|
       UserMailer.poll_sender(@poll, recipient, @message).deliver
     end
   end
