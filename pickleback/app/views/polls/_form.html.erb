@@ -12,11 +12,9 @@
 
   <div id="options">
     Answers<br>
-    <%@poll.options.each do |option|%>
-      <%= f.fields_for 'options_attributes[]', option do |option_form| %>
-        <%=option_form.text_field :answer %>
-        <%=option_form.filepicker_field :filepicker_url, onchange: "alert('Image uploaded!')"%>
-      <%end%>
+    <%= f.fields_for :options do |option_form| %>
+      <%=option_form.text_field :answer %>
+      <%=option_form.filepicker_field :filepicker_url, onchange: "alert('Image uploaded!')"%>
     <%end%>
   </div>
 
