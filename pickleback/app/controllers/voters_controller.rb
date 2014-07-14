@@ -6,13 +6,13 @@ class VotersController < ApplicationController
       @poll.voters.each do |voter|
         if session[:voter] == voter.uuid
           flash[:notice] = "You've already voted on this poll!"
-          redirect_to root_path
+          redirect_to root_path and return
         else
-          render :new
+          render :new and return
         end
       end
     else
-        redirect_to result_path(@poll.id)
+      redirect_to result_path(@poll.id)
     end
   end
 
@@ -24,11 +24,4 @@ class VotersController < ApplicationController
     voter.polls << @poll
     redirect_to vote_path(@poll.token)
   end
-
-
-  # def show
-  #   @poll = Poll.find_by(token: params[:token])
-  # end
-
-
 end

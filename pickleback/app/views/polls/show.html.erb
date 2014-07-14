@@ -5,9 +5,9 @@
 <ul>
 
   <%@poll.options.each do |option|%>
-    <li>Option: <%=option.answer%></li>
+    <li><%=option.answer%></li>
     <%unless option.filepicker_url.empty?%>
-      <li><%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%></li><br>
+      <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
     <%end%>
   <%end%>
   <p>This poll will expire on <%=@poll.expiration%></p>

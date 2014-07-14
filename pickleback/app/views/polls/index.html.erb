@@ -1,6 +1,8 @@
-<h2>Your polls</h2>
+<h2>Your Polls</h2>
 <p>Click on a poll to view results!</p>
 <% @polls.each do |poll| %>
-    <p><%= link_to poll.question, result_path(poll.id) %></p>
-    <%= button_to 'Delete poll', destroy_poll_path(poll) ,method: :delete %>
+    <p><%= poll.question %></p>
+    <%= link_to 'Poll Link', new_vote_path(poll.token) %> | 
+    <%= link_to 'See Results', result_path(poll.id) %> |
+    <%= link_to 'Delete poll', destroy_poll_path(poll) %>
 <% end %>
