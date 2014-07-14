@@ -6,10 +6,11 @@ class RecipientsController < ApplicationController
 
   def create
     @poll = Poll.find(params[:poll_id])
-    params[:recipients].each do |recipient|
-      #UserMailer.registration_confirmation(recipient).deliver
+    session[:recipients] = []
+    session[:recipients] = params[:recipients]
+    session[:recipients].each do |recipient|
+      UserMailer.poll_sender(@poll, recipient).deliver
     end
-
   end
 
   def destroy
