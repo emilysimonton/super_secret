@@ -1,2 +1,7 @@
-<h1>Recipients#create</h1>
-<p>Find me in app/views/recipients/create.html.erb</p>
+<p>Thank you! Your poll has been sent to the following recipients:</p>
+<ul>
+    <% session[:recipients].each do |recipient| %>
+        <li><%= recipient %></li>
+    <% end %>
+</ul>
+<p>Your poll results will be ready at <%= @poll.expiration %>.</p>
