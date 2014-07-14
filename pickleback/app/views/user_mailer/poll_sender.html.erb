@@ -1,3 +1,13 @@
-<p><%= @user.name %> (<%= @user.email %>) invited you to a Pickleback poll called "<%= @poll.question%>"</p>
+Hi there,
+<br>
+<br>
+<%= @user.name %> (<%= @user.email %>) invited you to a Pickleback poll called "<%= @poll.question %>"
 
-<a href="http://localhost:3000<%= new_vote_path(@poll.token) %>">Click here to vote!</a>
+<% if !@message.empty? %>
+    and left you this message:
+    <br>
+    <br>
+    <%= @message %>
+<% end %>
+
+<p><a href="http://localhost:3000<%= new_vote_path(@poll.token) %>">Click here to vote!</a></p>
