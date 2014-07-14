@@ -4,7 +4,7 @@
     <p><%= poll.question %></p>
     <% if Time.now <= poll.expiration %>
         <%= link_to 'Vote', new_vote_path(poll.token) %> | 
-        <%= link_to 'Send Poll', new_poll_recipient_path(poll) %> |        
+        <%= link_to 'Share Poll', new_poll_recipient_path(poll) %> |        
     <% end %>
     <%= link_to 'See Results', result_path(poll.id) %> |
     <%= link_to 'Delete Poll', destroy_poll_path(poll) %>

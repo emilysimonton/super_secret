@@ -25,6 +25,7 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     @poll.user = current_user
     if @poll.save
+      flash[:notice] = "Your poll has been created!"
       redirect_to @poll
     else
       flash[:notice] = "Please enter a question with two answers."
@@ -37,7 +38,7 @@ class PollsController < ApplicationController
 
   def update
     if @poll.update(poll_params)
-      flash[:notice] = "Successfully updated poll."
+      flash.now[:notice] = "Successfully updated poll."
       redirect_to poll_path(@poll)
     else
       flash[:notice] = "Something went wrong."
