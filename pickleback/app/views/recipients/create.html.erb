@@ -1,7 +1,7 @@
 <p>Thank you! Your poll has been sent to the following recipients:</p>
 <ul>
-<% session[:recipients].each do |recipient| %>
-    <li><%= recipient %></li>
-<% end %>
+    <% session[:recipients].each do |recipient| %>
+        <li><%= recipient %></li>
+    <% end %>
 </ul>
 <p>Your poll results will be ready at <%= @poll.expiration %>.</p>

@@ -2,7 +2,11 @@
 <p>Click on a poll to view results!</p>
 <% @polls.each do |poll| %>
     <p><%= poll.question %></p>
-    <%= link_to 'Poll Link', new_vote_path(poll.token) %> | 
-    <%= link_to 'See Results', result_path(poll.id) %> |
-    <%= link_to 'Delete poll', destroy_poll_path(poll) %>
+    <% if Time.now <= poll.expiration %>
+        <%= link_to 'Vote', new_vote_path(poll.token) %> | 
+        <%= link_to 'Send Poll', new_poll_recipient_path(poll) %> |
+    <% else %>
+        <%= link_to 'See Results', result_path(poll.id) %> |
+    <% end %>
+    <%= link_to 'Delete Poll', destroy_poll_path(poll) %>
 <% end %>
