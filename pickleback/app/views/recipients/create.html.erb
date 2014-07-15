@@ -1,6 +1,6 @@
 <p>Thank you! Your poll has been sent to the following recipients:</p>
 <ul>
-    <% session[:recipients].each do |recipient| %>
+    <% @recipients.each do |recipient| %>
         <li><%= recipient %></li>
     <% end %>
 </ul>
