@@ -2,13 +2,10 @@ class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :vote, :destroy]
 
   def index
-    # find user first
-    # find that user's polls
-    # TESTING
-
-    # TESTING
-
     @polls = current_user.polls
+    if @polls.empty?
+      render "first_timers"
+    end
   end
 
   def new
