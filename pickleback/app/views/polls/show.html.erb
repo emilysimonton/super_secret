@@ -10,9 +10,9 @@
       <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
     <%end%>
   <%end%>
-  <div id="countdownClock" data-expiration="<%=@poll.expiration%>">
-  </div>
 </ul>
+<div id="countdownClock" data-expiration="<%=@poll.expiration%>">
+</div>
   <p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
   <p><%= link_to 'Confirm', new_poll_recipient_path(@poll) %></p>
   <p><%= button_to 'Delete poll', destroy_poll_path(@poll), method: :delete %></p>

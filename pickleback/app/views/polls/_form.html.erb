@@ -1,7 +1,7 @@
 <%if flash[:notice]%>
   <%=flash[:notice]%>
 <%end%>
-
+<div id="fullpage">
 <%=form_for @poll do |f|%>
   <div id="question">
     <%=f.label :question%>
