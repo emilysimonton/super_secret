@@ -7,5 +7,5 @@
         <%= link_to 'Share Poll', new_poll_recipient_path(poll) %> |        
     <% end %>
     <%= link_to 'See Results', result_path(poll.id) %> |
-    <%= link_to 'Delete Poll', destroy_poll_path(poll) %>
+    <%= link_to 'Delete poll', destroy_poll_path(poll), method: :delete, data: {confirm: "Are you sure?"} %>
 <% end %>
