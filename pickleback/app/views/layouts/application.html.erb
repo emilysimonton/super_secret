@@ -21,12 +21,14 @@
         <%= link_to "Login", new_user_session_path %>
       <% end %>
     </div><!--user_nav-->
-  <div id="wrapper">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
-  </div><!--wrapper-->
+    <div id="wrapper">
+      <div id="center-wrapper">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% end %>
+        <%= yield %>
+      </div><!--center-wrapper-->
+    </div><!--wrapper-->
   </div><!--container-->
 </body>
 </html>

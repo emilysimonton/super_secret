@@ -16,13 +16,15 @@
  *= require jquery.fullpage.css
  *= require bootstrap.lumen
  */
-body {
+
+#wrapper {
     text-align: center;
 }
 
-#wrapper {
+#center-wrapper {
     display: inline-block;
     text-align: left;
     margin: 0 auto;
-    padding: 0;
+    padding: 5%;
+    border-radius: 10%;
 }
