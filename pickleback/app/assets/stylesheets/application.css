@@ -10,9 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require jquery.countdown.css
  *= require_tree .
  *= require_self
+ *= require jquery.countdown.css
+ *= require jquery.fullpage.css
+ *= require bootstrap.lumen
  */
 body {
     text-align: center;

@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 
-# Ignore API keys
+# Ignore local_env
 /config/local_env.yml
