@@ -18,3 +18,8 @@
 //= require jquery.countdown.js
 //= require_tree .
 
+$(function(){
+    $('.add-recipient-email').click(function(){
+        $('.recipient-email:first').after($('.recipient-email:first').clone());
+    });
+});
