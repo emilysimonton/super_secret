@@ -17,10 +17,6 @@ class Poll < ActiveRecord::Base
     end
   end
 
-  def js_date
-    self.expiration.strftime("%c")
-  end
-
   private
   def generate_token
     self.token = loop do
