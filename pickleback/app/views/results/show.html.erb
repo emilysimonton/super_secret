@@ -21,6 +21,6 @@
 <br>
 <%if Time.now < @poll.expiration%>
   <h4>Time left:</h4>
-  <div id="countdownClock" data-expiration="<%=@poll.expiration%>">
+  <div id="countdownClock" class = "is-countdown" data-expiration="<%=@poll.expiration%>">
   </div>
 <%end%>
