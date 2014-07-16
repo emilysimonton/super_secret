@@ -6,6 +6,14 @@ class Poll < ActiveRecord::Base
   validates :question, presence: true, length: {maximum: 140}
   accepts_nested_attributes_for :options
   before_create :generate_token
+  before_update :check_job
+
+  def check_job
+    if self.job_id
+      job = Delayed::Job.find(self.job_id)
+      job.update(:run_at => self.expiration)
+    end
+  end
 
   def winner
     if self.options[0].votes == self.options[1].votes

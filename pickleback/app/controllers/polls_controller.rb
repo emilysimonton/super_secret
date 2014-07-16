@@ -22,7 +22,8 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     @poll.user = current_user
     if @poll.save
-      UserMailer.delay(run_at: @poll.expiration).poll_close(@poll)
+      job = UserMailer.delay(run_at: @poll.expiration).poll_close(@poll)
+      @poll.update(job_id: job.id)
       flash[:notice] = "Your poll has been created!"
       redirect_to @poll
     else
