@@ -11,7 +11,7 @@
         <p>Email recipients:</p>
         <%=text_area_tag("recipients", @recipients, placeholder: "email1@example.com, email2@example.com", size: "40x5") %>
         <p>Write an optional message:</p>
-        <p><%=text_area_tag("message", @message, placeholder: "Friends, what do you think?", size: "40x5") %></p>
+        <%=text_area_tag("message", @message, placeholder: "Friends, what do you think?", size: "40x5") %></p>
         <%= submit_tag("Send poll") %>
     <% end %>
 </fieldset>
