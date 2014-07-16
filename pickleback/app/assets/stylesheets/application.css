@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require jquery.countdown.css
- *= require bootstrap.lumen
  */
 
 #wrapper {
