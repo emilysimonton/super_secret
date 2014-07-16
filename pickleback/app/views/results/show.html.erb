@@ -18,6 +18,9 @@
 <%if Time.now > @poll.expiration %>
   <h4>The winner is: <%= @poll.winner %>!</h4>
 <%end%>
-<span>Time left:</span>
-<div id="countdownClock" data-expiration="<%=@poll.expiration%>">
-</div>
+<br>
+<%if Time.now < @poll.expiration%>
+  <h4>Time left:</h4>
+  <div id="countdownClock" data-expiration="<%=@poll.expiration%>">
+  </div>
+<%end%>

@@ -17,3 +17,5 @@
 
 # Ignore local_env
 /config/local_env.yml
+
+vendor/assets/.DS_Store
