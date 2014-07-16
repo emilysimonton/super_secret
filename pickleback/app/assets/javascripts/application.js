@@ -17,14 +17,14 @@
 //= require jquery.plugin.js
 //= require jquery.countdown.js
 //= require_tree .
-//= require jquery.fullPage.js
+
 
 $(function(){
     $('.add-recipient-email').click(function(){
         $('.recipient-email:first').after($('.recipient-email:first').clone());
     });
 
-    $(document).on('click', 'input[type=text]', function(){ 
+    $(document).on('click', 'input[type=text]', function(){
         this.select();
     });
 });
