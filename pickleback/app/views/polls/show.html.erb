@@ -3,7 +3,6 @@
   <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
 <%end%>
 <ul>
-
   <%@poll.options.each do |option|%>
     <li><%=option.answer%></li>
     <%unless option.filepicker_url.empty?%>
@@ -12,9 +11,9 @@
   <%end%>
 </ul>
 <%if Time.now < @poll.expiration%>
-  <div id="countdownClock" data-expiration="<%=@poll.expiration%>">
+  <div id="countdownClock" class= 'is-countdown' data-expiration="<%=@poll.expiration%>">
   </div>
 <%end%>
-  <p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
-  <p><%= link_to 'Confirm', new_poll_recipient_path(@poll) %></p>
-  <p><%= button_to 'Delete poll', destroy_poll_path(@poll), method: :delete %></p>
+<p><%= link_to 'Edit', edit_poll_path(@poll) %></p>
+<p><%= link_to 'Confirm', new_poll_recipient_path(@poll) %></p>
+<p><%= button_to 'Delete poll', destroy_poll_path(@poll), method: :delete %></p>
