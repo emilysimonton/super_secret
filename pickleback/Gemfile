@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 
-# Use turbolinks to display filepicker buttons correctly
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
 gem 'jquery-turbolinks'
 # Use devise for user authentication
 gem 'devise'
