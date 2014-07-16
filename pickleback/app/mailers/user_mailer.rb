@@ -7,4 +7,10 @@ class UserMailer < ActionMailer::Base
     @user = User.find(poll.user_id)
     mail(:to => recipient, :subject => "#{@user.name} has a question for you")
   end
+
+  def poll_close(poll)
+    @poll = poll
+    @user = User.find(poll.user_id)
+    mail(:to => @user.email, :subject => "#{@user.name}, see your poll results!")
+  end
 end
