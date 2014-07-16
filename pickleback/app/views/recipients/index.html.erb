@@ -1,0 +1,7 @@
+<p>Thank you! Your poll has been sent to the following recipients:</p>
+<ul>
+    <% @recipients.split(',').each do |recipient| %>
+        <li><%= recipient %></li>
+    <% end %>
+</ul>
+<p>Your poll results will be ready for you at <%= @poll.expiration %>.</p>
