@@ -1,6 +1,6 @@
 <h2>Share</h2>
 <p>Here's your link to share:</p>
-<input type="text" value="localhost:3000/answer_me/<%=@poll.token%>/vote" />
+<input type="text" id="link_to_share" value="localhost:3000/answer_me/<%=@poll.token%>/vote" />
 <p>Or send poll via email:</p>
 <%= form_tag poll_recipients_path(@poll) do %>
     <div class="recipient-email">
@@ -9,7 +9,10 @@
     <div>
         <span class="add-recipient-email">+</span>
     </div>
-    <p>Write an optional message: <%=text_field_tag("message")%></p>
+    <p>Email recipients:</p>
+    <%=text_field_tag("recipients")%>
+    <p>Write an optional message:</p>
+    <p><%=text_field_tag("message")%></p>
     <%= submit_tag("Send poll") %>
 <% end %>
 
