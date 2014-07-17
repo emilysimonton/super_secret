@@ -7,3 +7,13 @@ $( document ).on( 'page:change', function () {
     } 
   });
 });
+
+//ANIMATED SKILL BAR
+$(".bar").waypoint(function(direction) {
+    var value = $(this).attr('data-value');
+    dp(this).css({
+        'width': value + '%'
+    });
+}, {
+    offset: '80%'
+});
