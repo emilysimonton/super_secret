@@ -22,8 +22,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                    <img src="images/pickles-128.png" alt="" height="28">PICKLEBACKS</a>
+                    <%= link_to(image_tag("pickles-128.png", :alt => "logo", :title => "Home", :class=>"images", :id=>"logo", :size=>"28"), "/", :class=>"navbar-brand") %>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,15 +50,10 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-
-    <div id="wrapper">
-      <div id="center-wrapper">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, id: "flash_#{name}" %>
         <% end %>
         <%= yield %>
-      </div><!--center-wrapper-->
-    </div><!--wrapper-->
   </div><!--container-->
 </body>
 </html>

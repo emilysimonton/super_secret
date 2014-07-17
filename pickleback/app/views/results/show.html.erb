@@ -1,18 +1,45 @@
-<% if Time.now <= @poll.expiration %>
-    <h1>Results so far</h1>
-<% else %>
-    <h1>The Results are in!</h1>
-<% end %>
 
-<h4>Question: <%= @poll.question %></h4>
-<h4>Votes</h4>
+<div class="section-wrapper">
+<div class="section-fill bg-parallax bg-skill" style="background-image: url(/assets/bg-service.jpg);">
+    <div class="fill-wrapper">
+        <div class="section-title">
+            <h2 class="white animatez" data-effect="fadeInDown">
+                  <% if Time.now <= @poll.expiration %>
+                      <strong>Results so far</strong>
+                  <% else %>
+                      <strong>The Results are in!</strong>
+                  <% end %>
+            </h2>
+            <hr class="title-break">
+        </div>
+        <div class="container">
+            <div class="row">
+                <h2>Question: <%= @poll.question %></h2><br>
+                    <% @poll.options.each do |option| %>
+                      <div class="col-md-6">
+                        <div class="skill-bar">
+                          <ul>
+                            <li>
+                              <div class="bar" data-value="<%=option.vote_percent%>" style="width: <%=option.vote_percent%>%;">
+                                <h5><%= option.answer %></h5>
+                                <span><%= option.vote_proportion_string %></span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
 <% @poll.options.each do |option| %>
-    <div id='option_result'>
-    <div><%= option.answer %>: <%= option.votes %></div><br>
     <% unless option.filepicker_url.empty? %>
         <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
     <% end %>
-    </div>
 <% end %>
 
 <%if Time.now > @poll.expiration %>
