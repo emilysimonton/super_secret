@@ -37,6 +37,7 @@
 <!-- END SLIDER ONE -->
 
 <div class="form-control">
+
 <%=form_for @poll do |f|%>
   <div id="question">
     <%=f.label :question%>
@@ -60,6 +61,5 @@
   <div class= "action">
       <%=f.submit%>
   </div>
-</div>
 <%end%>
 <%=button_to "Cancel", polls_path, method: :get%>
