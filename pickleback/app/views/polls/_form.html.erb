@@ -4,60 +4,54 @@
 
 <%= form_for @poll do |f| %>
 <!-- BEGIN SLIDES -->
-<div id="slides">
+<div id="slides" style="background-image: url(/assets/bg-service.jpg);">
   <ul class="slides-container text-center">
-    <li>
-      <!-- Slide 1 -->
+    <!-- Slide 1 -->
+    <li>  
       <div class="header-center fade-in">
-      
         <div id="question">
-          <%= f.label :question%>
+          <%= f.label :question, :"Ask a question!"%>
           <%= f.text_field :question%>
           <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
         </div>
-        
         <%=button_to "Cancel", polls_path, method: :get%> 
       </div>
     </li>
+    <!-- Slide 2 -->
     <li>
-      <!-- Slide 2 -->
       <div class="header-center fade-in">
-
         <div id="options">
-          Answers<br>
+          <%= f.label :options, :"Add your choices" %>
           <%= f.fields_for :options do |option_form| %>
           <%= option_form.text_field :answer %>
           <%= option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
           <% end %>
         </div>
-        
         <%=button_to "Cancel", polls_path, method: :get%>
       </div>
     </li>
+    <!-- Slide 3-->
     <li>
-      <!-- Slide 3-->
       <div class="header-center fade-in">
-
         <div id="expiration">
-          Expiration<br>
+          <%= f.label :expiration, :"When should polling close?" %>
           <%= f.datetime_local_field :expiration %><br>
         </div>
         <div class= "action">
           <%=f.submit%>
         </div>
-        
         <%=button_to "Cancel", polls_path, method: :get%>
       </div>
     </li>    
+    <!-- Slide 4-->
     <li>
-      <!-- Slide 4-->
       <div class="header-center fade-in">
         <p>Share!</p>
         <%# render template:"recipients/new" %>
       </div>
     </li>
+    <!-- Slide 5-->
     <li>
-      <!-- Slide 5-->
       <div class="header-center fade-in">
         <p>Shared!</p>
       </div>
