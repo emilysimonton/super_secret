@@ -2,65 +2,62 @@
 <%=flash[:notice]%>
 <%end%>
 
-<!-- BEGIN SLIDER ONE -->
+<%= form_for @poll do |f| %>
+<!-- BEGIN SLIDES -->
 <div id="slides">
   <ul class="slides-container text-center">
     <li>
-      <!-- Slide -->
+      <!-- Slide 1 -->
       <div class="header-center fade-in">
-        <%=form_for @poll do |f|%>
+      
         <div id="question">
-          <%=f.label :question%>
-          <%=f.text_field :question%>
+          <%= f.label :question%>
+          <%= f.text_field :question%>
           <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
         </div>
-        <%end%>
-        <%=button_to "Cancel", polls_path, method: :get%>
+        
+        <%=button_to "Cancel", polls_path, method: :get%> 
       </div>
     </li>
     <li>
-      <!-- Slide -->
+      <!-- Slide 2 -->
       <div class="header-center fade-in">
-        <%=form_for @poll do |f|%>
+
         <div id="options">
           Answers<br>
           <%= f.fields_for :options do |option_form| %>
-          <%=option_form.text_field :answer %>
-          <%=option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
-          <%end%>
+          <%= option_form.text_field :answer %>
+          <%= option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
+          <% end %>
         </div>
-
-        <div id="expiration">
-          Expiration<br>
-          <%=f.datetime_local_field :expiration%><br>
-        </div>
-        <%end%>
+        
         <%=button_to "Cancel", polls_path, method: :get%>
       </div>
     </li>
     <li>
-      <!-- Slide -->
+      <!-- Slide 3-->
       <div class="header-center fade-in">
-        <%=form_for @poll do |f|%>
+
         <div id="expiration">
           Expiration<br>
-          <%=f.datetime_local_field :expiration%><br>
+          <%= f.datetime_local_field :expiration %><br>
         </div>
         <div class= "action">
           <%=f.submit%>
         </div>
-        <%end%>
+        
         <%=button_to "Cancel", polls_path, method: :get%>
       </div>
     </li>    
     <li>
-      <!-- Slide -->
+      <!-- Slide 4-->
       <div class="header-center fade-in">
         <p>Share!</p>
+        <%# render template:"recipients/new" %>
       </div>
     </li>
     <li>
-      <!-- Slide -->
+      <!-- Slide 5-->
       <div class="header-center fade-in">
         <p>Shared!</p>
       </div>
@@ -71,32 +68,5 @@
     <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
   </nav>
 </div>
-<!-- END SLIDER ONE -->
-
-<%=form_for @poll do |f|%>
-<div id="question">
-  <%=f.label :question%>
-  <%=f.text_field :question%>
-  <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
-</div>
-
-<div id="options">
-  Answers<br>
-  <%= f.fields_for :options do |option_form| %>
-  <%=option_form.text_field :answer %>
-  <%=option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
-  <%end%>
-</div>
-
-<div id="expiration">
-  Expiration<br>
-  <%=f.datetime_local_field :expiration%><br>
-</div>
-
-<div class= "action">
-  <%=f.submit%>
-</div>
-<%end%>
-
-<%=button_to "Cancel", polls_path, method: :get%>
-
+<!-- END SLIDES -->
+<% end %>
