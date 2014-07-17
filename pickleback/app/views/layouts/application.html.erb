@@ -29,18 +29,18 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                       <% if user_signed_in? %>
-                        <li><%= link_to 'New poll', new_poll_path, :class=> "sscroll" %>
+                        <li><%= link_to '+', new_poll_path, :class=> "sscroll" %>
                         </li>
-                        <li><%= link_to 'View all polls', polls_path, :class=> "sscroll" %>
+                        <li><%= link_to 'POLLS', polls_path, :class=> "sscroll" %>
                         </li>
-                        <li><%= link_to 'Edit profile', edit_user_registration_path, :class=> "sscroll" %>
+                        <li><%= link_to 'PROFILE', edit_user_registration_path, :class=> "sscroll" %>
                         </li>
-                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class=> "sscroll" %>
+                        <li><%= link_to "LOGOUT", destroy_user_session_path, method: :delete, :class=> "sscroll" %>
                         </li>
                         <% else %>
-                        <li><%= link_to "Sign up", new_user_registration_path, :class=> "sscroll" %>
+                        <li><%= link_to "SIGN UP", new_user_registration_path, :class=> "sscroll" %>
                         </li>
-                         <li><%= link_to "Login", new_user_session_path, :class=> "sscroll" %>
+                         <li><%= link_to "LOGIN", new_user_session_path, :class=> "sscroll" %>
                         </li>
                         <%end%>
                     </ul>
