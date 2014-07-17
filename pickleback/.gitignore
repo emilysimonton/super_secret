@@ -19,4 +19,4 @@
 /config/local_env.yml
 
 vendor/assets/.DS_Store
-/.DS_Store
+.DS_Store
