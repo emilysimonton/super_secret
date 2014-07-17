@@ -244,6 +244,11 @@ p {
 .main-color {
     color: #4cddf3;
 }
+.section-form {
+    text-align: left;
+    padding-top: 50px;
+    background: #F7F7F7;
+}
 .section-wrapper.text-left, .text-left {
     text-align: left;
 }
