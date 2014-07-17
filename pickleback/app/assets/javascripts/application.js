@@ -21,13 +21,12 @@
 //= require_tree .
 
 
-
-$(function(){
-    $('.add-recipient-email').click(function(){
+$(function() {
+    $('.add-recipient-email').click(function() {
         $('.recipient-email:first').after($('.recipient-email:first').clone());
     });
 
-    $(document).on('click', 'input[type=text]', function(){
+    $(document).on('click', 'input[type=text]', function() {
         this.select();
     });
 });
