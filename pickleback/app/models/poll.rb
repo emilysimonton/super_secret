@@ -25,6 +25,14 @@ class Poll < ActiveRecord::Base
     end
   end
 
+  def total_votes
+    votes = 0
+    self.options.each do |option|
+      votes += option.votes
+    end
+    votes
+  end
+
   private
   def generate_token
     self.token = loop do
