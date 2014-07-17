@@ -1,40 +1,41 @@
-
-<div class="section-wrapper">
 <div class="section-fill bg-parallax bg-skill" style="background-image: url(/assets/bg-service.jpg);">
-    <div class="fill-wrapper">
-        <div class="section-title">
-            <h2 class="white animatez" data-effect="fadeInDown">
-                  <% if Time.now <= @poll.expiration %>
-                      <strong>Results so far</strong>
-                  <% else %>
-                      <strong>The Results are in!</strong>
-                  <% end %>
-            </h2>
-            <hr class="title-break">
-        </div>
-        <div class="container">
-            <div class="row">
-                <h2>Question: <%= @poll.question %></h2><br>
-                    <% @poll.options.each do |option| %>
-                      <div class="col-md-6">
-                        <div class="skill-bar">
-                          <ul>
-                            <li>
-                              <div class="bar" data-value="<%=option.vote_percent%>" style="width: <%=option.vote_percent%>%;">
-                                <h5><%= option.answer %></h5>
-                                <span><%= option.vote_proportion_string %></span>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    <% end %>
-            </div>
-        </div>
+  <div class="fill-wrapper">
+    <div class="section-title">
+      <h2 class="white animatez" data-effect="fadeInDown"> <strong>Some stuff</strong>
+        <% if Time.now <= @poll.expiration %>
+        <strong>Results so far</strong>
+        <% else %>
+        <strong>The Results are in!</strong>
+        <% end %>
+      </h2>
+      <hr class="title-break">
     </div>
+    <div class="container">
+      <div class="row">
+        <h2>Question: <%= @poll.question %></h2><br>
+        <%if Time.now < @poll.expiration%>
+            <div class="countdown styled" data-expiration="<%=@poll.expiration%>"></div>
+        <%end%>
+        <% @poll.options.each do |option| %>
+        <div class="col-md-6">
+          <div class="skill-bar">
+            <ul>
+              <li>
+                <div class="bar" data-value="<%=option.vote_percent%>" style="width: <%=option.vote_percent%>%;">
+                  <h5><%= option.answer %></h5>
+                  <span><%= option.vote_proportion_string %></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-</div>
+
 
 <% @poll.options.each do |option| %>
     <% unless option.filepicker_url.empty? %>
@@ -46,8 +47,4 @@
   <h4>The winner is: <%= @poll.winner %>!</h4>
 <%end%>
 <br>
-<%if Time.now < @poll.expiration%>
-  <h4>Time left:</h4>
-  <div id="countdownClock" data-expiration="<%=@poll.expiration%>">
-  </div>
-<%end%>
+
