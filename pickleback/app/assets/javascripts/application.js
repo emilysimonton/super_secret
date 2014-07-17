@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 
-//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -18,15 +17,15 @@
 //= require jquery.plugin.js
 //= require jquery.countdown.js
 //= require bootstrap.js
+//= require_tree .
 
 
-
-$(function(){
-    $('.add-recipient-email').click(function(){
+$(function() {
+    $('.add-recipient-email').click(function() {
         $('.recipient-email:first').after($('.recipient-email:first').clone());
     });
 
-    $(document).on('click', 'input[type=text]', function(){
+    $(document).on('click', 'input[type=text]', function() {
         this.select();
     });
 });
