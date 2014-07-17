@@ -21,6 +21,15 @@
       </div>
       <h2><span class="main-color">Question:</span> <%= @poll.question %></h2>
     </div>
+    <% @poll.options.each do |option| %>
+        <div>
+          <div class="col-md-6">
+            <% unless option.filepicker_url.empty? %>
+                <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
     <div class="container">
       <div class="row">
         <% @poll.options.each do |option| %>
@@ -37,13 +46,6 @@
           </div>
         </div>
         <% end %>
-        <% @poll.options.each do |option| %>
-       <div class="col-md-6">
-          <% unless option.filepicker_url.empty? %>
-              <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
-          <% end %>
-        </div>
-    <% end %>
       </div>
     </div>
   </div>
