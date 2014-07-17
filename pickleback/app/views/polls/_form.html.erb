@@ -1,3 +1,5 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 <%if flash[:notice]%>
 <%=flash[:notice]%>
 <%end%>
@@ -7,7 +9,7 @@
 <div id="slides" style="background-image: url(/assets/bg-service.jpg);">
   <ul class="slides-container text-center">
     <!-- Slide 1 -->
-    <li>  
+    <li>
       <div class="header-center fade-in">
         <div id="question">
           <%= f.label :question, :"Ask a question!"%>
@@ -17,7 +19,7 @@
         <div class="slides-navigation">
           <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
         </div>
-        <%=button_to "Cancel", polls_path, method: :get%> 
+        <%=button_to "Cancel", polls_path, method: :get%>
       </div>
     </li>
     <!-- Slide 2 -->
@@ -49,7 +51,7 @@
         </div>
         <%=button_to "Cancel", polls_path, method: :get%>
       </div>
-    </li>    
+    </li>
     <!-- Slide 4-->
     <li>
       <div class="header-center fade-in">
@@ -63,7 +65,7 @@
         <p>Shared!</p>
       </div>
     </li>
-  </ul>    
+  </ul>
   <nav class="slides-navigation">
     <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
     <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
