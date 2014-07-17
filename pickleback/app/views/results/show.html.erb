@@ -37,7 +37,6 @@
   </div>
 </div>
 
-
 <% @poll.options.each do |option| %>
     <% unless option.filepicker_url.empty? %>
         <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
