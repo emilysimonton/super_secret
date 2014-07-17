@@ -1,11 +1,20 @@
-<h2>Your Polls</h2>
-<p>Click on a poll to view results!</p>
+<div class= "polls-index-wrapper">
+<div class = "polls-title">
+    Your Polls
+</div>
+<br>
 <% @polls.each do |poll| %>
-    <p><%= poll.question %></p>
+  <div class="polls-subtitle">
+ <%= poll.question %>
+<br>
     <% if Time.now <= poll.expiration %>
-        <%= link_to 'Vote', new_vote_path(poll.token) %> | 
-        <%= link_to 'Share Poll', new_poll_recipient_path(poll) %> |        
+        <%= link_to 'VOTE', new_vote_path(poll.token), class: "sub"%> | 
+        <%= link_to 'SHARE POLL', new_poll_recipient_path(poll), class: "sub" %> |        
     <% end %>
-    <%= link_to 'See Results', result_path(poll.id) %> |
-    <%= link_to 'Delete poll', destroy_poll_path(poll), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to 'SEE RESULTS', result_path(poll.id), class: "sub" %> |
+    <%= link_to 'DELETE POLL', destroy_poll_path(poll), method: :delete, data: {confirm: "Are you sure?"}, class: "sub" %>
 <% end %>
+</div>
+
+</div>
+</div>
