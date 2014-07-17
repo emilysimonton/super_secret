@@ -12,7 +12,7 @@
   <%end%>
 </ul>
 <%if Time.now < @poll.expiration%>
-  <div id="countdownClock" class="is-countdown" data-expiration="<%=@poll.expiration%>">
+  <div id="countdownClock" class="countdown styled" data-expiration="<%=@poll.expiration%>">
   </div>
 <%end%>
   <p><%= link_to 'Edit', edit_poll_path(@poll) %></p>

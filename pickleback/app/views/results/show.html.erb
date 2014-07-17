@@ -8,7 +8,7 @@
 <h4>Votes</h4>
 <% @poll.options.each do |option| %>
     <div id='option_result'>
-    <%= option.answer %>: <%= option.votes %><br>
+    <div><%= option.answer %>: <%= option.votes %></div><br>
     <% unless option.filepicker_url.empty? %>
         <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
     <% end %>
@@ -21,6 +21,6 @@
 <br>
 <%if Time.now < @poll.expiration%>
   <h4>Time left:</h4>
-  <div id="countdownClock" class = "is-countdown" data-expiration="<%=@poll.expiration%>">
+  <div id="countdownClock" data-expiration="<%=@poll.expiration%>">
   </div>
 <%end%>
