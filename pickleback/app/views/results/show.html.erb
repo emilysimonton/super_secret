@@ -14,6 +14,11 @@
           <h2>The winner is: <span class= "main-color"><%= @poll.winner %></span></h2>
         <%end%>
       <hr class="title-break">
+      <div>
+      <%unless @poll.filepicker_url.empty?%>
+        <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%><br>
+      <%end%>
+      </div>
       <h2><span class="main-color">Question:</span> <%= @poll.question %></h2>
     </div>
     <div class="container">
@@ -32,15 +37,15 @@
           </div>
         </div>
         <% end %>
+        <% @poll.options.each do |option| %>
+       <div class="col-md-6">
+          <% unless option.filepicker_url.empty? %>
+              <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
+          <% end %>
+        </div>
+    <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<% @poll.options.each do |option| %>
-    <% unless option.filepicker_url.empty? %>
-        <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%><br>
-    <% end %>
-<% end %>
-
 
