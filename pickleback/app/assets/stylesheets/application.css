@@ -12,9 +12,15 @@
  *
  *= require_self
  *= require jquery.countdown.css
- *= require bootstrap-theme.css
+ *= require bootstrap.min.css
+ *= require font-awesome.css
+ *= require zocial.css
+ *= require venobox.css
+ *= require og-component.css
+ *= require animate.css
  *= require style-light.css
-  *= require_tree .
+ *= require color.css
+ *= require_tree .
  */
 
 #wrapper {
