@@ -1,65 +1,101 @@
 <%if flash[:notice]%>
-  <%=flash[:notice]%>
+<%=flash[:notice]%>
 <%end%>
 
 <!-- BEGIN SLIDER ONE -->
 <div id="slides">
-    <ul class="slides-container text-center">
-        <li>
-            <!-- Slide -->
-            <img src='images/home-slide-3.jpg' alt="" class="fullscreen-image" />
-            <div class="header-center fade-in">
-                <h1>I AM
-                    <span>RINDU</span>&nbsp;KAMU</h1>
-                <p>Ketika galau menyerang &amp; dan harapan telah mengambang</p>
-                <p><a class="sscroll slider-more" href="#about"><i class="fa fa-angle-down"></i></a>
-                </p>
-            </div>
-        </li>
-        <li>
-            <!-- Slide -->
-            <img src='images/home-slide-1.jpg' alt="" class="fullscreen-image">
-            <div class="header-center fade-in">
-                <h1>Get More
-                    <span>Extras</span>
-                </h1>
-                <p>Great play, extensive design &amp; buy the products</p>
-                <p><a class="sscroll slider-more" href="#services"><i class="fa fa-angle-down"></i></a>
-                </p>
-            </div>
-        </li>
-    </ul>
-    <nav class="slides-navigation">
-        <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
-        <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
-    </nav>
+  <ul class="slides-container text-center">
+    <li>
+      <!-- Slide -->
+      <div class="header-center fade-in">
+        <%=form_for @poll do |f|%>
+        <div id="question">
+          <%=f.label :question%>
+          <%=f.text_field :question%>
+          <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
+        </div>
+        <%end%>
+        <%=button_to "Cancel", polls_path, method: :get%>
+      </div>
+    </li>
+    <li>
+      <!-- Slide -->
+      <div class="header-center fade-in">
+        <%=form_for @poll do |f|%>
+        <div id="options">
+          Answers<br>
+          <%= f.fields_for :options do |option_form| %>
+          <%=option_form.text_field :answer %>
+          <%=option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
+          <%end%>
+        </div>
+
+        <div id="expiration">
+          Expiration<br>
+          <%=f.datetime_local_field :expiration%><br>
+        </div>
+        <%end%>
+        <%=button_to "Cancel", polls_path, method: :get%>
+      </div>
+    </li>
+    <li>
+      <!-- Slide -->
+      <div class="header-center fade-in">
+        <%=form_for @poll do |f|%>
+        <div id="expiration">
+          Expiration<br>
+          <%=f.datetime_local_field :expiration%><br>
+        </div>
+        <div class= "action">
+          <%=f.submit%>
+        </div>
+        <%end%>
+        <%=button_to "Cancel", polls_path, method: :get%>
+      </div>
+    </li>    
+    <li>
+      <!-- Slide -->
+      <div class="header-center fade-in">
+        <p>Share!</p>
+      </div>
+    </li>
+    <li>
+      <!-- Slide -->
+      <div class="header-center fade-in">
+        <p>Shared!</p>
+      </div>
+    </li>
+  </ul>    
+  <nav class="slides-navigation">
+    <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
+    <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
+  </nav>
 </div>
 <!-- END SLIDER ONE -->
 
-<div class="form-control">
-
 <%=form_for @poll do |f|%>
-  <div id="question">
-    <%=f.label :question%>
-    <%=f.text_field :question%>
-    <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
-  </div>
+<div id="question">
+  <%=f.label :question%>
+  <%=f.text_field :question%>
+  <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
+</div>
 
-  <div id="options">
-    Answers<br>
-    <%= f.fields_for :options do |option_form| %>
-      <%=option_form.text_field :answer %>
-      <%=option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
-    <%end%>
-  </div>
+<div id="options">
+  Answers<br>
+  <%= f.fields_for :options do |option_form| %>
+  <%=option_form.text_field :answer %>
+  <%=option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
+  <%end%>
+</div>
 
-  <div id="expiration">
+<div id="expiration">
   Expiration<br>
   <%=f.datetime_local_field :expiration%><br>
-  </div>
+</div>
 
-  <div class= "action">
-      <%=f.submit%>
-  </div>
+<div class= "action">
+  <%=f.submit%>
+</div>
 <%end%>
 <%=button_to "Cancel", polls_path, method: :get%>
+
