@@ -629,6 +629,13 @@ p {
     background: #F7F7F7;
     text-align: center;
 }
+
+.first_timer {
+ padding-top: 200px;
+ text-align: center;
+ background: #F7F7F7;
+ height: 100%;
+}
 .section-title {
     text-align: center;
     position: relative;
