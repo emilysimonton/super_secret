@@ -13,6 +13,7 @@
 //= require jquery
 //= require grid
 //= require bootstrap.js
+//= require jquery.countdown.js
 //= require jquery.superslides.min.js
 //= require jquery.backtotop.js
 //= require jquery.parallax.js
@@ -28,7 +29,6 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require jquery.plugin.js
-//= require jquery.countdown.js
 //= require modernizr.custom.js
 //= require_tree .
 
