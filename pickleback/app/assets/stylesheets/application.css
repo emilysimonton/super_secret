@@ -10,11 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require jquery.countdown.css
- *= require bootstrap-theme.css
+ *= require bootstrap.min.css
+ *= require font-awesome.css
+ *= require zocial.css
+ *= require venobox.css
+ *= require og-component.css
+ *= require animate.css
  *= require style-light.css
+ *= require color.css
+ *= require_tree .
  */
 
 #wrapper {
