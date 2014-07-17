@@ -31,8 +31,6 @@
                         </li>
                         <li><%= link_to 'View all polls', polls_path, :class=> "sscroll" %>
                         </li>
-                        <li><%= link_to 'View all polls', polls_path, :class=> "sscroll"%>
-                        </li>
                         <li><%= link_to 'Edit profile', edit_user_registration_path, :class=> "sscroll" %>
                         </li>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class=> "sscroll" %>
@@ -50,19 +48,7 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-    <div id="user_nav" class='navbar navbar-default'>
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'New poll', new_poll_path %> |
-        <%= link_to 'View all polls', polls_path %> |
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Login", new_user_session_path %>
 
-      <% end %>
-    </div><!--user_nav-->
     <div id="wrapper">
       <div id="center-wrapper">
         <% flash.each do |name, msg| %>
