@@ -17,6 +17,7 @@
 //= require jquery.plugin.js
 //= require jquery.countdown.js
 //= require bootstrap.js
+//= require modernizr.custom.js
 //= require_tree .
 
 

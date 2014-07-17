@@ -18,11 +18,14 @@ class RecipientsController < ApplicationController
       email_errors = ValidatesEmailFormatOf::validate_email_format(email)
       @invalid_emails.push(email) if (email_errors && !email.empty?)
     end
-    
+
     if @recipients.empty?
       flash.now[:error] = "No emails entered"
       render :new
     elsif @invalid_emails.empty?
+      @recipients.split(",").each do |email|
+        UserMailer.poll_sender(@poll, email, @message).deliver
+      end
       redirect_to poll_recipients_path(@poll)
     else
       flash.now[:error] = "The following emails are invalid: #{@invalid_emails.join(', ')}"

@@ -9,5 +9,9 @@ Hi there,
     <br>
     <%= @message %>
 <% end %>
-
-<p><a href="http://localhost:3000<%= new_vote_path(@poll.token) %>">Click here to vote!</a></p>
+<br>
+<br>
+<a href="http://localhost:3000<%= new_vote_path(@poll.token) %>">Click here to vote!</a>
+<br>
+<br>
+(This poll expires at <%= @poll.expiration %>.)
