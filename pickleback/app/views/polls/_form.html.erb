@@ -7,57 +7,52 @@
 <%= form_for @poll do |f| %>
 <form role="form">
 <!-- BEGIN SLIDES -->
-<div id="slides" style="background-image: url(/assets/bg-service.jpg);">
+<div id="slides">
   <ul class="slides-container text-center">
     <!-- Slide 1 -->
     <li>
-      <div class="header-center fade-in">
+      <div class="header-center fade-in poll-cards">
         <div id="question" class="form-group">
-          <%= f.label :question, :"Ask a question!"%>
+          <%= f.label :question, :"Ask a question!"%><br>
           <%= f.text_area :question, autofocus: true, :class => "form-control", :placeholder => "Ask question", :cols=>"40", :rows=>"5"%>
           <%= f.filepicker_field :filepicker_url, dragdrop: true,  :button_class => "btn btn-default", :drag_class =>"btn btn-default", onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
-       
-        <div class="slides-navigation">
+         </div>
+        <div class="slides-navigation polls">
           <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
         </div>
-        <%=button_to "Cancel", polls_path, method: :get,:class => "btn btn-default"%>
-      </div>
+    
+    </div>
     </li>
-
     <!-- Slide 2 -->
     <li>
-      <div class="header-center fade-in">
+      <div class="header-center fade-in poll-cards">
         <div id="options" class= "form-group">
-          <%= f.label :options, :"Add your choices" %>
+          <%= f.label :options, :"Add your choices" %><br>
           <%= f.fields_for :options do |option_form| %>
           <%= option_form.text_field :answer, :class => "form-control", :size => "40", :placeholder => "Enter choice" %>
           <%= option_form.filepicker_field :filepicker_url, dragdrop: true, :button_class => "btn btn-default",  :drag_class =>"btn btn-default", onchange: "alert('Image uploaded!')"%><br>
           <% end %>
-        <div class="slides-navigation">
+        </div>
+        <div class="slides-navigation polls">
           <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
           <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
         </div>
-        <%=button_to "Cancel", polls_path, method: :get, :class => "btn btn-default"%>
-      </div>
     </div>
     </li>
     <!-- Slide 3-->
     <li>
-      <div class="header-center fade-in">
+      <div class="header-center fade-in poll-cards">
         <div id="expiration", class="form-group">
-          <%= f.label :expiration, :"When should polling close?" %>
+          <%= f.label :expiration, :"When should polling close?" %><br>
           <%= f.datetime_local_field :expiration, :class=>"form-control btn btn-default" %>
         </div>
         <div class= "action">
-          <%=f.submit "Create Poll!", :class => "btn btn-default"%> <%=button_to "Cancel", polls_path, method: :get, :class => "btn btn-default"%>
+          <%=f.submit "Create Poll!", :class => "btn btn-default"%>
       </div>
+    </div>
     </li>
   </form>
   </ul>
-  <nav class="slides-navigation">
-    <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
-    <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
-  </nav>
 </div>
 <!-- END SLIDES -->
 <% end %>

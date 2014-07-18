@@ -403,6 +403,8 @@ p {
     background: #FFF;
     letter-spacing: -999999999px;
 }
+
+
 .slides-pagination a {
     border-radius: 15px;
     outline: 0;
@@ -630,48 +632,6 @@ p {
     text-align: center;
 }
 
-.first_timer {
- padding-top: 200px;
- text-align: center;
- background: #F7F7F7;
- height: 100%;
-}
-
-
-.polls-index-wrapper {
-    padding-top: 100px;
-    background: #F7F7F7;
-    text-align: center;
-    height: 100%;
-}
-
-.polls-title {
-    font-weight: bold;
-    font-size: 50px;
-    line-height: 60px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    color: #25292c;
-    z-index: 2;
-}
-
-.polls-subtitle{
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 32px;
-    margin-top: 0;
-    color: #999;
-}
-
-.accordion-title{
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 32px;
-    margin-top: 0;
-    color: #999;
-    padding-left: 20%;
-    text-align: left;
-}
 .section-title {
     text-align: center;
     position: relative;
@@ -1069,7 +1029,7 @@ p {
     color: #FFF;
     display: inline-block;
     margin: 3px 10px;
-}
+
 .footer-logo img {
     margin-bottom: 10px;
     text-align: center;
