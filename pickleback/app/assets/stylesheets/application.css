@@ -95,13 +95,7 @@ background-color: rgba(247, 247, 247, 0.4);
     z-index: 2;
 }
 
-.polls-subtitle{
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 32px;
-    margin-top: 0;
-    color: #999;
-}
+
 
 .accordion-title{
     font-size: 28px;
