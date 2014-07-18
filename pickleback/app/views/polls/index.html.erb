@@ -1,20 +1,44 @@
 <div class= "polls-index-wrapper">
-<div class = "polls-title">
+<span class = "polls-title">
     Your Polls
+</span>
+<span class="dropdown polls-subtitle">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu">
+        <li><%=link_to "Expiration", sort: "expiration"%></li>
+        <li><%=link_to "Most recent", sort: "created_at"%></li>
+    </ul>
+</span>
+<!-- ACCORDION -->
+    <div class="panel-group" id="accordion">
+      <%@polls.each_with_index do |poll, i|%>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href=<%="#collapse#{i}"%>>
+<div class="accordion-title"><%=poll.question%></div>
+</a>
+                </h4>
+            </div>
+            <div id=<%="collapse#{i}"%> class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>
+                      <% if Time.now <= poll.expiration %>
+                          <%= link_to 'VOTE', new_vote_path(poll.token), class: "sub"%> | 
+                          <%= link_to 'SHARE POLL', new_poll_recipient_path(poll), class: "sub" %> |        
+                      <% end %>
+                      <%= link_to 'SEE RESULTS', result_path(poll.id), class: "sub" %> |
+                      <%= link_to 'DELETE POLL', destroy_poll_path(poll), method: :delete, data: {confirm: "Are you sure?"}, class: "sub" %>
+                      <%poll.options.each do |option|%>
+                        <p><%=option.answer%> : <%=option.votes%></p>
+                      <%end%>
+                    </p>
+                </div>
+            </div>
+        </div>
+  <%end%>
 </div>
-<br>
-<% @polls.each do |poll| %>
-  <div class="polls-subtitle">
- <%= poll.question %>
-<br>
-    <% if Time.now <= poll.expiration %>
-        <%= link_to 'VOTE', new_vote_path(poll.token), class: "sub"%> | 
-        <%= link_to 'SHARE POLL', new_poll_recipient_path(poll), class: "sub" %> |        
-    <% end %>
-    <%= link_to 'SEE RESULTS', result_path(poll.id), class: "sub" %> |
-    <%= link_to 'DELETE POLL', destroy_poll_path(poll), method: :delete, data: {confirm: "Are you sure?"}, class: "sub" %>
-<% end %>
+</div>
 </div>
 
-</div>
-</div>
+

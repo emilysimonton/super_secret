@@ -2,7 +2,7 @@ class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :vote, :destroy]
 
   def index
-    @polls = current_user.polls
+    @polls = current_user.polls.order(params[:sort])
     if @polls.empty?
       render "first_timers"
     end
@@ -56,6 +56,6 @@ class PollsController < ApplicationController
   end
 
   def poll_params
-    params.require(:poll).permit(:question, :expiration, :token, :user_id, :filepicker_url, :options_attributes=>[:answer, :filepicker_url, :id])
+    params.require(:poll).permit(:sort, :question, :expiration, :token, :user_id, :filepicker_url, :options_attributes=>[:answer, :filepicker_url, :id])
   end
 end
