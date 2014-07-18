@@ -23,6 +23,12 @@
  *= require_tree .
  */
 
+ .flash {
+  position: absolute;
+  top: 15%;
+  right: 2%;
+ }
+
 #wrapper {
     text-align: center;
 }
