@@ -11,7 +11,7 @@
     <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), {:class => "zocial google"} %><br />
   <% end -%>
 <% end -%>
-
+<br>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
