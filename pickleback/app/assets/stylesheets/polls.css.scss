@@ -6,3 +6,39 @@ label {
     font-size: 30px;
     display: block;
 }
+
+img[src*="filepicker"] {
+    margin: 12px;
+    border: 2px solid #25292c;
+    border-radius: 3px;
+}
+
+.opt-btn {
+    margin: 0 12px 12px 12px;
+    padding: 5px 15px;
+    background-color: #5bc0de;
+    border: 2px solid #46b8da;
+    border-radius: 3px;
+    width: 404px;
+}
+
+.opt-txt {
+    font-size: 22px;
+    font-weight: 300;
+    color: #FFF; 
+}
+
+hr.title-break {
+    margin: 40px auto 50px auto;
+}
+
+div#countdownClock{
+    margin: 50px;
+}
+
+div.edit-buttons {
+    right: 0;
+    margin: 50px auto;
+    text-align: center;
+}
+

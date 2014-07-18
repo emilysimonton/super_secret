@@ -630,38 +630,6 @@ p {
     text-align: center;
 }
 
-.first_timer {
- padding-top: 200px;
- text-align: center;
- background: #F7F7F7;
- height: 100%;
-}
-
-
-.polls-index-wrapper {
-    padding-top: 100px;
-    background: #F7F7F7;
-    text-align: center;
-    height: 100%;
-}
-
-.polls-title {
-    font-weight: bold;
-    font-size: 50px;
-    line-height: 60px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    color: #25292c;
-    z-index: 2;
-}
-
-.polls-subtitle{
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 32px;
-    margin-top: 0;
-    color: #999;
-}
 .section-title {
     text-align: center;
     position: relative;
@@ -682,14 +650,6 @@ p {
     line-height: 28px;
     margin-top: 0;
     color: #999;
-}
-
-.polls-subtitle .sub{
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 28px;
-    margin-top: 0;
-
 }
 
 .title-break {
