@@ -8,7 +8,7 @@
         <strong>THE RESULTS ARE IN</strong>
         <% end %>
       </h2>
-       
+
       <div>
         <h2><%= @poll.question %></h2>
         <%unless @poll.filepicker_url.empty?%>
@@ -44,10 +44,9 @@
           </div>
         <% end %>
         <%if Time.now < @poll.expiration%>
-          <div  data-expiration="<%=@poll.expiration%>"></div>
+          <div class="countdown styled" data-expiration="<%=@poll.expiration%>"></div>
         <%end%>
       </div>
     </div>
   </div>
 </div>
-
