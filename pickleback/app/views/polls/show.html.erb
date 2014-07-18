@@ -4,17 +4,18 @@
     <div class="fill-wrapper">
         <div class="section-title">
             <h2 class="white animated fadeInDown" data-effect="fadeInDown">
-                <strong>PREVIEW</strong>
+                <strong>PREVIEW POLL</strong>
             </h2>
             <h2 class="white animated fadeInDown" data-effect="fadeInDown">
                 <strong><%= @poll.question %></strong>
             </h2>
-            <hr class="title-break">
             <div>
                 <% unless @poll.filepicker_url.empty? %>
                 <%= filepicker_image_tag @poll.filepicker_url, w: 300, h: 300 %><br>
                 <% end %>
             </div>
+            <hr class="title-break">
+            
         </div>
         <div class="container">
             <div class="row">
@@ -29,7 +30,7 @@
                 <div class="col-md-6">
                     <div class="opt-btn">
                         <div class="opt-txt">
-                            +1 <%= option.answer %>
+                            <%= option.answer %>
                         </div>
                     </div>
                 </div>
