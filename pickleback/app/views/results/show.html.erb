@@ -39,7 +39,7 @@
         <% @poll.options.each do |option| %>
           <div class="col-md-6">
             <% unless option.filepicker_url.empty? %>
-                <%=filepicker_image_tag option.filepicker_url, w: 300, h: 400, fit: 'crop'%><br>
+                <%=filepicker_image_tag option.filepicker_url, h: 300, w: 400, fit: 'crop'%><br>
             <% end %>
           </div>
         <% end %>
