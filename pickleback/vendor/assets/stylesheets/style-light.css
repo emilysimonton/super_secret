@@ -671,7 +671,6 @@ p {
     SECTION FILL
 */
  .section-fill {
-    height: 100%;
 }
 .bg-parallax {
     background-size: cover !important;
