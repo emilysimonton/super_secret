@@ -403,6 +403,8 @@ p {
     background: #FFF;
     letter-spacing: -999999999px;
 }
+
+
 .slides-pagination a {
     border-radius: 15px;
     outline: 0;
@@ -630,7 +632,10 @@ p {
     text-align: center;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03a18da5e9623023a7b5dea293bce5a1c667bd2e
 .section-title {
     text-align: center;
     position: relative;
@@ -1020,7 +1025,7 @@ p {
     color: #FFF;
     display: inline-block;
     margin: 3px 10px;
-}
+
 .footer-logo img {
     margin-bottom: 10px;
     text-align: center;
