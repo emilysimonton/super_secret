@@ -1,16 +1,68 @@
-<%=form_tag("/answer_me/#{@poll.token}") do %>
-<%=@poll.question%><br>
-<%unless @poll.filepicker_url.empty?%>
-  <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 300%>
-<%end%>
-<br>
-<%@poll.options.each do |option| %>
-  <%= radio_button_tag(:option, option.id) %>
-  <%= label_tag("option_#{option.id}", "#{option.answer}") %>
-  <%unless option.filepicker_url.empty?%>
-    <%=filepicker_image_tag option.filepicker_url, w: 300, h: 300%>
-  <%end%>
-<%end%>
-<br>
-<%=submit_tag 'Vote'%>
-<%end%>
+
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="section-fill bg-parallax bg-skill" style="background-image: url(/assets/bg-service.jpg);">
+    <div class="fill-wrapper">
+        <div class="section-title">
+            <h2 class="white animated fadeInDown" data-effect="fadeInDown">
+                <strong><%= @poll.question %></strong>
+            </h2>
+            <div>
+                <% unless @poll.filepicker_url.empty? %>
+                <%= filepicker_image_tag @poll.filepicker_url, w: 300, h: 300 %><br>
+                <% end %>
+            </div>
+            <hr class="title-break">
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <%= form_tag("/answer_me/#{@poll.token}") do %>
+                    <% @poll.options.each do |option| %>
+                    <div class="col-md-6">
+                            <%unless option.filepicker_url.empty?%>
+                            <%=filepicker_image_tag option.filepicker_url, h:300, w:400, fit:'crop' %>
+                            <%end%>
+                    </div>
+                    <% end %>
+                    <% @poll.options.each do |option| %>
+                        <div class="col-md-6">
+                            <%= radio_button_tag(:option, option.id) %>
+                            <%= label_tag("option_#{option.id}", "#{option.answer}") %>
+                        </div>
+                    <%end%>
+                    <%=submit_tag 'Vote', class:'btn btn-dark' %>
+                <%end%>
+            </div> <!-- row -->
+
+            <div class="row">
+                <% @poll.options.each do |option| %>
+                <div class="col-md-6">
+                    <% unless option.filepicker_url.empty? %>
+                    <%= filepicker_image_tag option.filepicker_url, h:300, w:400, fit:'crop' %><br>
+                    <% end %>
+                </div>
+                <% end %>
+
+                <% @poll.options.each do |option| %>
+                <div class="col-md-6">
+                    <div class="opt-btn">
+                        <div class="opt-txt">
+                            +1 <%= option.answer %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+
+            <% if Time.now < @poll.expiration %>
+            <div id="countdownClock" class="countdown styled" data-expiration="<%= @poll.expiration %>">
+            </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>
+</div>
+
