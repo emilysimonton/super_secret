@@ -140,14 +140,14 @@ background-color: rgba(247, 247, 247, 0.4);
   padding-right: 5px;
     border-right: 0px solid #1d2023;
     left: -150px;
-    bottom: 2em;
+    bottom: 80px;
     -webkit-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
     -moz-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
     box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
 }
 .slides-navigation.polls a.next {
    position: absolute;
-    bottom: 2em;
+    bottom: 60px;
     border: 0px solid #1d2023;
     padding-left: 5px;
     border-left: 0px solid #1d2023;
@@ -169,4 +169,40 @@ background-color: rgba(247, 247, 247, 0.4);
     font-family: Roboto;
     color: #1d2023
     padding: 0px;
+}
+
+.slides-navigation.polls.exp a.prev {
+ position: absolute;
+  border: 0px solid #1d2023;
+  padding-right: 5px;
+    border-right: 0px solid #1d2023;
+    left: -150px;
+    bottom: 35px;
+    -webkit-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    -moz-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+}
+
+.slides-navigation.polls.op a.prev {
+ position: absolute;
+  border: 0px solid #1d2023;
+  padding-right: 5px;
+    border-right: 0px solid #1d2023;
+    left: -140px;
+    bottom: 85px;
+    -webkit-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    -moz-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+}
+
+.slides-navigation.polls.op a.next {
+   position: absolute;
+    bottom: 85px;
+    border: 0px solid #1d2023;
+    padding-left: 5px;
+    border-left: 0px solid #1d2023;
+    right: -10px;
+    -webkit-box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    -moz-box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.05);
 }
