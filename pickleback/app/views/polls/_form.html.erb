@@ -1,4 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+z<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <%if flash[:notice]%>
 <%=flash[:notice]%>
@@ -15,8 +15,8 @@
         <div id="question" class="form-group">
           <%= f.label :question, :"Ask a question!"%>
           <%= f.text_area :question, autofocus: true, :class => "form-control", :placeholder => "Ask question", :cols=>"40", :rows=>"5"%>
-          <%= f.filepicker_field :filepicker_url, dragdrop: true,  :button_class => "btn btn-default", :drag_class =>"btn btn-default", onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
-       
+          <%= f.filepicker_field :filepicker_url, dragdrop: true,  :button_class => "btn btn-default", :drag_class =>"btn btn-default"%> <!-- Poll#filepicker_url is a regular string column -->
+
         <div class="slides-navigation">
           <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
         </div>
@@ -31,7 +31,7 @@
           <%= f.label :options, :"Add your choices" %>
           <%= f.fields_for :options do |option_form| %>
           <%= option_form.text_field :answer, :class => "form-control", :size => "40", :placeholder => "Enter choice" %>
-          <%= option_form.filepicker_field :filepicker_url, dragdrop: true, :button_class => "btn btn-default",  :drag_class =>"btn btn-default", onchange: "alert('Image uploaded!')"%><br>
+          <%= option_form.filepicker_field :filepicker_url, dragdrop: true, :button_class => "btn btn-default",  :drag_class =>"btn btn-default"%><br>
           <% end %>
         <div class="slides-navigation">
           <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
