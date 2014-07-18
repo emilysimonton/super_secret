@@ -156,3 +156,11 @@ background-color: rgba(247, 247, 247, 0.4);
     background: black;
     color: #4cddf3;
 }
+
+.forms-font{
+    font-size: 22px;
+    font-weight: 300;
+    font-family: Roboto;
+    color: #1d2023
+    padding: 0px;
+}
