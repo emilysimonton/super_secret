@@ -40,7 +40,7 @@
             <div id="countdownClock" class="countdown styled" data-expiration="<%= @poll.expiration %>">
             </div>
             <% end %>
-            <div class="edit-buttons"> 
+            <div class="poll-buttons"> 
                 <%= link_to 'Edit', edit_poll_path(@poll), class:'btn btn-dark' %>
                 <%= link_to 'Confirm', new_poll_recipient_path(@poll), class:'btn btn-dark' %>
                 <%= link_to 'Delete', destroy_poll_path(@poll), class:'btn btn-dark', method: :delete %>

@@ -1,58 +1,59 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
 <%if flash[:notice]%>
 <%=flash[:notice]%>
 <%end%>
-
 <%= form_for @poll do |f| %>
 <form role="form">
-<!-- BEGIN SLIDES -->
-<div id="slides">
-  <ul class="slides-container text-center">
-    <!-- Slide 1 -->
-    <li>
-      <div class="header-center fade-in poll-cards">
-        <div id="question" class="form-group">
-          <%= f.label :question, :"Ask a question!", class: "pollmaker-header" %><br>
-          <%= f.text_area :question, autofocus: true, :class => "form-control", :placeholder => "Ask question", :cols=>"40", :rows=>"5"%>
-          <%= f.filepicker_field :filepicker_url, dragdrop: true,  :button_class => "btn btn-default", :drag_class =>"btn btn-default"%> <!-- Poll#filepicker_url is a regular string column -->
-
-        <div class="slides-navigation polls">
-          <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
+  <!-- BEGIN SLIDES -->
+  <div id="slides">
+    <ul class="slides-container text-center">
+      <!-- Slide 1 -->
+      <li>
+        <div class="header-center fade-in poll-cards">
+          <div id="question" class="form-group">
+            <%= f.label :question, :"Ask a question!", class: "pollmaker-header" %><br>
+            <%= f.text_area :question, autofocus: true, :class => "form-control", :placeholder => "Ask question", :cols=>"40", :rows=>"5"%>
+            <%= f.filepicker_field :filepicker_url, dragdrop: true,  :button_class => "btn btn-default", :drag_class =>"btn btn-default"%> <!-- Poll#filepicker_url is a regular string column -->
+            
+            <div class="slides-navigation polls">
+              <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
         </div>
-    
-    </div>
-    </li>
-    <!-- Slide 2 -->
-    <li>
-      <div class="header-center fade-in poll-cards">
-        <div id="options" class= "form-group">
-          <%= f.label :options, :"Add your choices", class: "pollmaker-header" %><br>
-          <%= f.fields_for :options do |option_form| %>
-          <%= option_form.text_field :answer, :class => "form-control", :size => "40", :placeholder => "Enter choice" %>
-          <%= option_form.filepicker_field :filepicker_url, dragdrop: true, :button_class => "btn btn-default",  :drag_class =>"btn btn-default"%><br>
-          <% end %>
+      </li>
+      <!-- Slide 2 -->
+      <li>
+        <div class="header-center fade-in poll-cards">
+          <div id="options" class= "form-group">
+            <%= f.label :options, :"Add your choices", class: "pollmaker-header" %><br>
+            <%= f.fields_for :options do |option_form| %>
+            <%= option_form.text_field :answer, :class => "form-control", :size => "40", :placeholder => "Enter choice" %>
+            <%= option_form.filepicker_field :filepicker_url, dragdrop: true, :button_class => "btn btn-default",  :drag_class =>"btn btn-default"%><br>
+            <% end %>
+            <div class="slides-navigation polls op">
+              <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
+              <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="slides-navigation polls">
-          <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
-          <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
+      </li>
+      <!-- Slide 3-->
+      <li>
+        <div class="header-center fade-in poll-cards">
+          <div id="expiration", class="form-group">
+            <%= f.label :expiration, :"When should polling close?", class: "pollmaker-header" %><br><br>
+            <%= f.datetime_local_field :expiration, :class=>"form-control btn btn-default" %>
+            <div class="slides-navigation polls exp">
+              <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
+            </div>
+            <div class= "action">
+              <%=f.submit "Create Poll!", :class => "btn btn-default"%>
+            </div>
+          </div>
         </div>
-    </div>
-    </li>
-    <!-- Slide 3-->
-    <li>
-      <div class="header-center fade-in poll-cards">
-        <div id="expiration", class="form-group">
-          <%= f.label :expiration, :"When should polling close?", class: "pollmaker-header" %><br>
-          <%= f.datetime_local_field :expiration, :class=>"form-control btn btn-default" %>
-        </div>
-        <div class= "action">
-          <%=f.submit "Create Poll!", :class => "btn btn-default"%>
-      </div>
-    </div>
-    </li>
-  </form>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</form>
 <!-- END SLIDES -->
 <% end %>
