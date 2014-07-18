@@ -1,10 +1,5 @@
-// Place all the styles related to the polls controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com
-
-label.pollmaker-header {
-    font-size: 30px;
-    display: block;
+#poll {
+    text-align: center;
 }
 
 img[src*="filepicker"] {
@@ -32,11 +27,14 @@ hr.title-break {
     color: #FFF; 
 }
 
-div#countdownClock{
-    margin: 50px;
+.opt-txt label {
+    margin: 0;
 }
 
-div.poll-buttons {
-    margin: 50px auto;
-    text-align: center;
+div .vote-button {
+    margin: 50px auto 0 auto;
+}
+
+div#countdownClock{
+    margin: 50px;
 }
