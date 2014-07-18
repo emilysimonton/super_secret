@@ -698,6 +698,13 @@ p {
     margin: 40px auto 100px auto;
     display: inline-block;
 }
+
+.title-break2{
+    border-top: 3px solid #CCC;
+    width: 80px;
+    margin: 25px auto 25px auto;
+    display: inline-block;
+}
 /*
     SECTION FILL
 */
