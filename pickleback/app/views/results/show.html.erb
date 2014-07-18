@@ -44,7 +44,7 @@
           </div>
         <% end %>
         <%if Time.now < @poll.expiration%>
-          <div class="countdown styled" data-expiration="<%=@poll.expiration%>"></div>
+          <div  data-expiration="<%=@poll.expiration%>"></div>
         <%end%>
       </div>
     </div>
