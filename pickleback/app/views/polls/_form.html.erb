@@ -1,73 +1,58 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 <%if flash[:notice]%>
 <%=flash[:notice]%>
 <%end%>
 
 <%= form_for @poll do |f| %>
+<form role="form">
 <!-- BEGIN SLIDES -->
-<div id="slides" style="background-image: url(/assets/bg-service.jpg);">
+<div id="slides">
   <ul class="slides-container text-center">
     <!-- Slide 1 -->
-    <li>  
-      <div class="header-center fade-in">
-        <div id="question">
-          <%= f.label :question, :"Ask a question!"%>
-          <%= f.text_field :question%>
-          <%= f.filepicker_field :filepicker_url, dragdrop: true, onchange: "alert('Image uploaded!')"%> <!-- Poll#filepicker_url is a regular string column -->
-        </div>
-        <div class="slides-navigation">
+    <li>
+      <div class="header-center fade-in poll-cards">
+        <div id="question" class="form-group">
+          <%= f.label :question, :"Ask a question!"%><br>
+          <%= f.text_area :question, autofocus: true, :class => "form-control", :placeholder => "Ask question", :cols=>"40", :rows=>"5"%>
+          <%= f.filepicker_field :filepicker_url, dragdrop: true,  :button_class => "btn btn-default", :drag_class =>"btn btn-default"%> <!-- Poll#filepicker_url is a regular string column -->
+
+        <div class="slides-navigation polls">
           <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
         </div>
-        <%=button_to "Cancel", polls_path, method: :get%> 
-      </div>
+    
+    </div>
     </li>
     <!-- Slide 2 -->
     <li>
-      <div class="header-center fade-in">
-        <div id="options">
-          <%= f.label :options, :"Add your choices" %>
+      <div class="header-center fade-in poll-cards">
+        <div id="options" class= "form-group">
+          <%= f.label :options, :"Add your choices" %><br>
           <%= f.fields_for :options do |option_form| %>
-          <%= option_form.text_field :answer %>
-          <%= option_form.filepicker_field :filepicker_url, dragdrop: true,onchange: "alert('Image uploaded!')"%>
+          <%= option_form.text_field :answer, :class => "form-control", :size => "40", :placeholder => "Enter choice" %>
+          <%= option_form.filepicker_field :filepicker_url, dragdrop: true, :button_class => "btn btn-default",  :drag_class =>"btn btn-default"%><br>
           <% end %>
         </div>
-        <div class="slides-navigation">
+        <div class="slides-navigation polls">
           <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
           <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
         </div>
-        <%=button_to "Cancel", polls_path, method: :get%>
-      </div>
+    </div>
     </li>
     <!-- Slide 3-->
     <li>
-      <div class="header-center fade-in">
-        <div id="expiration">
-          <%= f.label :expiration, :"When should polling close?" %>
-          <%= f.datetime_local_field :expiration %><br>
+      <div class="header-center fade-in poll-cards">
+        <div id="expiration", class="form-group">
+          <%= f.label :expiration, :"When should polling close?" %><br>
+          <%= f.datetime_local_field :expiration, :class=>"form-control btn btn-default" %>
         </div>
         <div class= "action">
-          <%=f.submit%>
-        </div>
-        <%=button_to "Cancel", polls_path, method: :get%>
+          <%=f.submit "Create Poll!", :class => "btn btn-default"%>
       </div>
-    </li>    
-    <!-- Slide 4-->
-    <li>
-      <div class="header-center fade-in">
-        <p>Share!</p>
-        <%# render template:"recipients/new" %>
-      </div>
+    </div>
     </li>
-    <!-- Slide 5-->
-    <li>
-      <div class="header-center fade-in">
-        <p>Shared!</p>
-      </div>
-    </li>
-  </ul>    
-  <nav class="slides-navigation">
-    <a href="javascript:;" class="prev"><i class="fa fa-angle-left"></i></a>
-    <a href="javascript:;" class="next"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </form>
+  </ul>
 </div>
 <!-- END SLIDES -->
 <% end %>

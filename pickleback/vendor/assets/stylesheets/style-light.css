@@ -403,6 +403,8 @@ p {
     background: #FFF;
     letter-spacing: -999999999px;
 }
+
+
 .slides-pagination a {
     border-radius: 15px;
     outline: 0;
@@ -656,6 +658,13 @@ p {
     border-top: 3px solid #CCC;
     width: 80px;
     margin: 40px auto 100px auto;
+    display: inline-block;
+}
+
+.title-break2{
+    border-top: 3px solid #CCC;
+    width: 80px;
+    margin: 25px auto 25px auto;
     display: inline-block;
 }
 /*
@@ -1012,7 +1021,7 @@ p {
     color: #FFF;
     display: inline-block;
     margin: 3px 10px;
-}
+
 .footer-logo img {
     margin-bottom: 10px;
     text-align: center;

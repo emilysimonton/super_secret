@@ -32,3 +32,127 @@
     text-align: left;
     margin: 0 auto;
 }
+
+.home-icon {
+    color: black;
+}
+
+.home-icon:hover {
+    color: #4cddf3;
+}
+
+.header-center a.sscroll {
+  border: 2px solid black;
+}
+
+.first_timer {
+ padding-top: 200px;
+ text-align: center;
+ background: #F7F7F7;
+ height: 100%;
+}
+
+.polls-wrapper {
+    background: #F7F7F7;
+    text-align: center;
+    height: 100%;
+}
+
+.polls-index-wrapper {
+    padding-top: 100px;
+    background: #F7F7F7;
+    text-align: center;
+    height: 100%;
+}
+
+.polls-subtitle .sub{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    margin-top: 0;
+
+}
+.poll-cards{
+padding: 1.5% 5% 1.5% 5%;
+box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.1);
+
+background-color: rgba(247, 247, 247, 0.4);
+}
+
+.polls-title {
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    color: #25292c;
+    z-index: 2;
+}
+
+.polls-subtitle{
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 32px;
+    margin-top: 0;
+    color: #999;
+}
+
+.accordion-title{
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 32px;
+    margin-top: 0;
+    color: #999;
+    padding-left: 20%;
+    text-align: left;
+}
+
+.slides-navigation.polls {
+    margin: 0 auto;
+    z-index: 3;
+    /*top: 46%;*/
+    bottom: 50px;
+    width: 100%;
+    outline: 0;
+}
+
+.slides-navigation.polls a {
+    display: block;
+    width: 56px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 40px;
+    background: white;
+    color: #4cddf3;
+    outline: 0;
+}
+
+.slides-navigation.polls a.prev {
+  position: absolute;
+  border: 0px solid #1d2023;
+  padding-right: 5px;
+    border-right: 0px solid #1d2023;
+    left: -150px;
+    bottom: 2em;
+    -webkit-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    -moz-box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+}
+.slides-navigation.polls a.next {
+   position: absolute;
+    bottom: 2em;
+    border: 0px solid #1d2023;
+    padding-left: 5px;
+    border-left: 0px solid #1d2023;
+    right: -10px;
+    -webkit-box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    -moz-box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+    box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.05);
+}
+
+
+.slides-navigation.polls a:hover {
+    background: black;
+    color: #4cddf3;
+}
