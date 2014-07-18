@@ -16,7 +16,7 @@
       <hr class="title-break">
       <div>
       <%unless @poll.filepicker_url.empty?%>
-        <%=filepicker_image_tag @poll.filepicker_url, w: 200, h: 200%><br>
+        <%=filepicker_image_tag @poll.filepicker_url, w: 300, h: 400, fit: 'crop'%><br>
       <%end%>
       </div>
       <h2><span class="main-color">Question:</span> <%= @poll.question %></h2>
@@ -40,7 +40,7 @@
         <% @poll.options.each do |option| %>
           <div class="col-md-6">
             <% unless option.filepicker_url.empty? %>
-                <%=filepicker_image_tag option.filepicker_url, size: "40%"%><br>
+                <%=filepicker_image_tag option.filepicker_url, w: 300, h: 400, fit: 'crop'%><br>
             <% end %>
           </div>
         <% end %>
