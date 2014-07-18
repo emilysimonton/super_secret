@@ -28,33 +28,19 @@
                     <% end %>
                     <% @poll.options.each do |option| %>
                         <div class="col-md-6">
-                            <%= radio_button_tag(:option, option.id) %>
-                            <%= label_tag("option_#{option.id}", "#{option.answer}") %>
+                            <div class="opt-btn">
+                                <div class="opt-txt">
+                                    <%= radio_button_tag(:option, option.id) %>
+                                    <%= label_tag("option_#{option.id}", "#{option.answer}") %>
+                                </div>
+                            </div>
                         </div>
                     <%end%>
-                    <%=submit_tag 'Vote', class:'btn btn-dark' %>
+                    <div id='poll'>
+                        <%=submit_tag 'Vote', class:'btn btn-dark vote-button' %>
+                    </div>
                 <%end%>
             </div> <!-- row -->
-
-            <div class="row">
-                <% @poll.options.each do |option| %>
-                <div class="col-md-6">
-                    <% unless option.filepicker_url.empty? %>
-                    <%= filepicker_image_tag option.filepicker_url, h:300, w:400, fit:'crop' %><br>
-                    <% end %>
-                </div>
-                <% end %>
-
-                <% @poll.options.each do |option| %>
-                <div class="col-md-6">
-                    <div class="opt-btn">
-                        <div class="opt-txt">
-                            +1 <%= option.answer %>
-                        </div>
-                    </div>
-                </div>
-                <% end %>
-            </div>
 
             <% if Time.now < @poll.expiration %>
             <div id="countdownClock" class="countdown styled" data-expiration="<%= @poll.expiration %>">
